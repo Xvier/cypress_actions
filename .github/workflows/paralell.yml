@@ -1,0 +1,47 @@
+name: Cypress Parallel Test
+
+on: [push]
+
+jobs:
+  # Basic Electron tests no dashboards
+  cypress-parallel-unix:
+    name: Ubuntu cypress
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1,2,3]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run tests
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
+          parallel: true
+          group: 'Linux Group'
+        env:
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID}}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  cypress-parallel-windows:
+    name: Windows Cypress
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1,2,3]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run tests on windows
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
+          parallel: true
+          group: 'Windows Group'
+          browser: edge
+        env:
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID}}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
