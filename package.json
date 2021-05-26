@@ -1,0 +1,24 @@
+{
+  "name": "cypress_actions",
+  "version": "1.0.0",
+  "description": "Example how to use github actions with cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open",
+    "testx": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xvier/cypress_actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xvier/cypress_actions/issues"
+  },
+  "homepage": "https://github.com/Xvier/cypress_actions#readme",
+  "dependencies": {
+    "cypress": "^7.4.0"
+  }
+}
