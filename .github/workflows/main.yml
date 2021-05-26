@@ -1,6 +1,6 @@
 name: Cypress Test
 
-on: [push]
+on: [release]
 
 jobs:
   # Basic Electron tests no dashboards
