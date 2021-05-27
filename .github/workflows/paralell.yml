@@ -26,7 +26,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   cypress-parallel-windows:
     name: Windows Cypress
-    runs-on: windows-latest
+    runs-on: windows-2016
     strategy:
       fail-fast: false
       matrix:
